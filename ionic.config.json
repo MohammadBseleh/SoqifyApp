@@ -1,0 +1,7 @@
+{
+  "name": "SoqifyApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
