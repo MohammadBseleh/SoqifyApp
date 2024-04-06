@@ -16,6 +16,10 @@ export class LoginComponent  implements OnInit {
   ngOnInit() {}
 
   navigateToRegister() {
-    this.router.navigate(['sign-up']);
+    this.router.navigate(['choose-role']);
+  }
+
+  navigateToMerchant() {
+    this.router.navigate(['merchant']);
   }
 }

@@ -34,6 +34,7 @@
     margin-bottom: 20px;
     position: relative;
     top: 20px;
+    right: 7px;
     font-family: 'Plus Jakarta Sans';
     font-weight: bold;
     color: #C73240;
@@ -56,37 +57,97 @@
     flex-direction: column;
     align-items: center;
   }
+
+.login-form {
+  margin-top: 70px;
+  width: 100%;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px; /* Increase margin-bottom for spacing */
+  border: 1px solid #000000;
+  border-radius: 15px;
+  background-color: #ffffff; /* Light background for input */
+}
+.email-text{
+  margin-left: 5px;
+  color: #AE4031;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  background-color: #C73240; /* Adjust the button color as per design */
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px; /* Spacing above the button */
+  margin-bottom: 20px; /* Spacing below the button */
+}
+
+.separator {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5px;
+  color: #C73240;
+  font-size: 18px;
+  font-weight: 1000;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
   
-  .logo-container {
-    margin-top: 40px;
-    width: 184px;
-    height: 140px;
-    margin-bottom: 50px; /* Adjust as per design */
-  }
-
-  button {
-    width: 100%;
-    padding: 20px;
-    border: none;
-    border-radius: 15px;
-    background-color: #C73240; /* Adjust the button color as per design */
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 40px; /* Spacing above the button */
-    position: relative;
-    top: 70px;
-  }
-
-  h1{
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #C73240;
-  }
-
-  h2{
-    font-size: 24px;
-    color: #C73240;
-    margin-bottom: 40px;
-  }
   
+}
+
+.social-button {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 0 5px; /* Space between buttons */
+  cursor: pointer;
+  display: inline-flex; /* Align icons and text within the buttons */
+  align-items: center;
+  justify-content: center;
+}
+
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.btn {
+  color: #C7313F;
+  margin-top: 10px;
+  width: 100%;
+  padding: 30px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+  white-space: nowrap;
+  position: relative;
+  bottom: 15px;
+  border: 1px solid #ededef;
+  background-color: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease-in-out;
+}
+
+

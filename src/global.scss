@@ -24,3 +24,34 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+app-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+    /* Add more styles as needed */
+  }
+  
+  app-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+    /* Add more styles as needed */
+  }
+  
+  body, html {
+    margin: 0;
+    padding-top: [HeaderHeight]px; /* Replace [HeaderHeight] with the actual height of your header */
+    padding-bottom: [FooterHeight]px; /* Replace [FooterHeight] with the actual height of your footer */
+    overflow-x: hidden;
+  }
+  
+  .content {
+    /* Assuming .content wraps all the page content except header and footer */
+    overflow-y: auto;
+    height: 100vh;
+    padding: 110px 0 70px; /* Adjust if necessary */
+  }

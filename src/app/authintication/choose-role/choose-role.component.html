@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="choose-role.component.scss" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img
+          width="50"
+          height="50"
+          src="https://img.icons8.com/C73240/pastel-glyph/64/person-male--v2.png"
+          alt="person-male--v2"
+        />
+        <h1>Sign Up</h1>
+      </header>
+
+      <div class="login-card">
+        <div class="logo-container">
+          <img src="../../../assets/Logo.png" alt="appLogo">
+        </div>
+        <h1>Welcome to Souqify</h1>
+        <h2>Continue As:</h2>
+        <div class="container-wrapper">
+          <div class="type-container">
+            <img src="../../../assets/icon/merchantSymbol.png" alt="merchant">
+            <span class="type">Merchant</span>
+          </div>
+          <div class="type-container">
+            <img src="../../../assets/icon/supplierSymbol.png" alt="supplier">
+            <span class="type">Supplier</span>
+          </div>
+        </div>        
+        <button (click)="navigateToSignUp()">Continue</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+.card {
+    width: 100%; /* Adjust width as needed */
+    overflow: hidden; /* Ensures overflow content is clipped to the container */
+    font-family: 'Arial', sans-serif; /* Set the font */
+  }
+  
+  .cover-photo img {
+    width: 100%; /* Ensure cover photo takes the full width of the card */
+    display: block; /* Remove any extra spacing below the image */
+  }
+  
+  .profile {
+    position: relative; /* Set relative positioning for the profile section */
+    text-align: center; /* Center the text */
+    padding-top: 50px; /* Space for the profile picture to overlap the cover photo */
+    background: white; /* Background for the profile text section */
+  }
+  
+  .profile-pic {
+    width: 150px; /* Fixed width for the profile picture */
+    height: 150px; /* Fixed height for the profile picture */
+    border-radius: 50%; /* Circular profile picture */
+    border: 3px solid white; /* White border around the profile picture */
+    position: absolute; /* Position absolutely to overlap the cover photo */
+    top: -90px; /* Half of the profile picture's height to overlap */
+    left: calc(45% - 50px); /* Center the profile picture */
+  }
+  
+  h2 {
+    margin: 0; /* Remove default margin */
+    color: #333; /* Set text color */
+    font-size: 24px; /* Set font size */
+    text-align: start;
+    margin-left: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    margin-top: 4px;
+    width: 70%;
+    position: relative;
+    top: 6px;
+  }
+  
+  .add-button {
+    background-color: #C7313F; /* Background color for the add button */
+    color: white; /* Text color for the add button */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners for the button */
+    padding: 10px ; /* Padding inside the button */
+    padding-left: 30px;
+    padding-right: 30px;
+    cursor: pointer; /* Cursor to indicate the button is clickable */
+    outline: none; /* Remove the focus outline */
+    margin-left: 10px;
+    width: 30%;
+    margin-right: 15px;
+    font-size: 24px;
+    text-wrap: nowrap;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+  }
+
+.profile-initial{
+    display: flex;
+    justify-content: center;
+
+}
+
+.profile-info {
+    margin: 15px;
+    margin-top: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, minmax(120px, 1fr)); /* Use minmax for responsive columns */
+}
+
+.profile-info span {
+    white-space: normal; /* Allows text wrapping */
+    overflow-wrap: break-word; /* Ensures words break to prevent overflow */
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info span {
+    white-space: nowrap; /* Keep the text on a single line */
+    overflow: hidden; /* Hide overflow text */
+    white-space: normal; /* Allows text wrapping */
+    overflow-wrap: break-word; /* Ensures words break to prevent overflow */
+
+  }
+
+.description {
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: start;
+    font-size: 18px;
+    font-family: 'Urbanist';
+    font-weight: 500;
+    color: #000000;
+    width: 100%;
+}
+
+.description span {
+    font-size: larger;
+    font-weight: 1000;
+}
+
+.description p{
+    margin-right: 25px;
+    text-wrap: wrap;
+    width: 95%;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+}
+
+
+

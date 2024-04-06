@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Adjust the background color if needed */
+  }
+  
+  body {
+    width: 100%;
+  }
+  
+  .container {
+    width: 100%;
+    padding: 50px 20px; /* Add some padding around the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header {
+    display: flex ;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    top: 20px;
+    right: 7px;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: bold;
+    color: #C73240;
+  }
+  
+  .header h1{
+    position: relative  ;
+    top: 7px;
+    left: 7px;
+  }
+  
+  .login-card {
+    
+    width: 100%; /* Take the full container width */
+    max-width: 400px; /* Set a max-width for larger screens */
+    margin: 0 auto; /* Center the card */
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo-container {
+    margin-top: 40px;
+    width: 184px;
+    height: 140px;
+    margin-bottom: 50px; /* Adjust as per design */
+  }
+
+  button {
+    
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #C73240; /* Adjust the button color as per design */
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 40px; /* Spacing above the button */
+    position: relative;
+    top: 70px;
+  }
+
+  h1{
+    display: flex ;
+    align-items: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #C73240;
+  }
+
+  h2{
+    display: flex ;
+    align-items: center;
+    font-size: 24px;
+    color: #C73240;
+    margin-bottom: 40px;
+  }
+  .type-container {
+    display: flex; /* This will enable flexbox layout */
+    flex-direction: column; /* This stacks the img and span vertically */
+    align-items: center; /* This centers them horizontally in the flex container */
+    margin-right: 20px; /* This adds a gap between each type-container */
+  }
+  
+  .type-container:last-child {
+    margin-right: 0; /* This removes the margin from the last type-container */
+  }
+  
+  /* Optional: If you want to ensure the containers are side by side */
+  .container-wrapper {
+    margin-top: 20px;
+    display: flex; /* Enables flexbox layout for the container wrapper */
+    gap: 60px; /* This replaces the margin-right on .type-container for spacing */
+  }
+  
+  img {
+    margin-bottom: 10px; /* Adjust as needed for spacing between img and span */
+  }
+  
+  

@@ -1,0 +1,56 @@
+
+
+h1 {
+    margin-top: 25px;
+    margin-left: 30px;
+    color: #000000;
+    font-size: 40px;
+    font-family: 'urbanist';
+    letter-spacing: 3px;
+    font-weight: lighter;
+}
+.order-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    margin-top: 15px;
+    border:  1px solid #ddd;
+    border-radius: 35px;
+}
+.order-card {
+    width: 94%;
+    background: #F1F1F1;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 15px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    text-wrap: nowrap;
+}
+
+.order-container .order-card:last-child{
+    margin-bottom: 15px;
+}
+
+.order-details{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    gap: 4px;
+}
+.date{
+    margin-bottom: 5px;
+    color: #6F6F6F;
+}
+.status{
+    margin-left: 47px;
+    background-color: lightgreen;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-wrap: nowrap;
+    border-radius: 25px;
+}

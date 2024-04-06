@@ -59,8 +59,8 @@
         </div>
 
         <form class="login-form">
-          <span class="email-text">Email</span>
-          <input type="email" id="email" placeholder="Email" required />
+          <span class="email-text">Username or Email</span>
+          <input placeholder="Email" required />
           <span class="email-text">password</span>
           <input
             type="password"
@@ -69,7 +69,7 @@
             required
           />
           <a href="#" class="forgot-password">Forgot Password?</a>
-          <button type="submit">Continue</button>
+          <button type="submit" (click)="navigateToMerchant()">Continue</button>
         </form>
 
         <div class="separator">Or Continue With</div>
