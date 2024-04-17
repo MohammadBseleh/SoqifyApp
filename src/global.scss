@@ -11,7 +11,6 @@
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
-
 /* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
@@ -24,6 +23,9 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 
 app-header {
@@ -54,4 +56,9 @@ app-header {
     overflow-y: auto;
     height: 100vh;
     padding: 110px 0 70px; /* Adjust if necessary */
+  }
+  :root {
+    --swiper-navigation-color: #c73240;
+    --swiper-pagination-color: #c73240;
+    --swiper-pagination-bullet-size: 12px;
   }

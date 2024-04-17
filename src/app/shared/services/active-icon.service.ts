@@ -9,7 +9,6 @@ export class ActiveIconService {
 
 
   getActiveIcon(): string {
-    console.log(this._activeIcon);
     return this._activeIcon;
   }
 

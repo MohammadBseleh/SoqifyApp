@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding-top: 60px; /* Height of the header */
+  background-color: #c73240; /* Same as header, extends to the top */
+}
+.content {
+  position: relative;
+  padding-top: 0px;
+  background-color: white; /* Background for the main content area */
+  z-index: 2; /* Ensure content is above the background but below the header */
+}
+.conversation-header {
+  display: flex;
+  align-items: center;
+  background-color: #c73240;
+  gap: 10px;
+  color: white;
+  position: fixed;
+  max-width: 600px;
+  width: 100%;
+  z-index: 10;
+}
+.conversation-header::before {
+  content: "";
+  position: fixed; /* Position it relative to the viewport */
+  top: -60px; /* Extend it to the space above, assuming the header is 60px */
+  left: 0;
+  right: 0;
+  height: 60px; /* The height by which to extend the background color upwards */
+  background-color: #c73240; /* The same background color as the header */
+  z-index: -1; /* Ensure it doesn't overlap content in the header */
+}
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.1); /* Added spread radius */
+  padding: 10px;
+  max-width: 600px;
+  height: 60px;
+  position: fixed; /* Fixes the position relative to the viewport */
+  bottom: 90px; /* Adjust this value to the height of your footer */
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1000; /* Ensures it stays above other content */
+}
+.input-field {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.send-button {
+  background-color: white;
+  cursor: pointer;
+  color: #c73240;
+}
+
+.send-button img {
+  background-color: white;
+  width: 24px;
+  height: 24px;
+  color: #c73240;
+  margin-right: 20px;
+  display: block;
+}
+/* Add further styling such as hover effects, active states, etc. as needed. */
+
+.message {
+  position: relative; /* If you want to assign a z-index, it needs to be positioned */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px; /* Adjust as needed */
+  margin: auto;
+  padding-top: 90px /* Height of your header */; /* Add space to clear the fixed header */
+  padding-bottom: 150px;
+}
+
+.sender-message,
+.receiver-message {
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  max-width: 75%; /* Messages use up to 75% of the .message container width */
+}
+
+.sender-message {
+  align-self: flex-end; /* Align sender messages to the right */
+  background-color: #c73240; /* Light blue background for sender */
+  color: white; /* White text for sender */
+  margin-right: 10px; /* Spacing on the right */
+}
+
+.receiver-message {
+  align-self: flex-start; /* Align receiver messages to the left */
+  background-color: #e9ecef; /* Light grey background for receiver */
+  color: black; /* Dark text for receiver */
+  margin-left: 10px; /* Spacing on the left */
+}

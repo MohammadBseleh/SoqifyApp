@@ -34,5 +34,13 @@ export const routes: Routes = [
   {
     path: 'chat',
     loadComponent: () => import('../app/shared/chat/chat.component').then((m) => m.ChatComponent),
+  },
+  {
+    path: 'conversation',
+    loadComponent: () => import('../app/shared/conversation/conversation.component').then((m) => m.ConversationComponent),
+  },
+  {
+    path: 'find-supplier',
+    loadComponent: () => import('./merchant/find-supplier/find-supplier.page').then( m => m.FindSupplierPage)
   }
 ];

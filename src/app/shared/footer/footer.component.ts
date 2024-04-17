@@ -20,7 +20,6 @@ export class FooterComponent  implements OnInit {
 
   setActiveIcon(iconName: string) {
     this.activeIconService.setActiveIcon(iconName);
-    console.log(this.activeIcon);
   }
 
   onIconClick(iconName: string) {
@@ -34,11 +33,14 @@ export class FooterComponent  implements OnInit {
     if (iconName === 'profile') {
       this.router.navigate(['/profile']);
     }
-    if (iconName === 'notifications') {
-      this.router.navigate(['/notifications']);
+    if (iconName === 'suppliers') {
+      this.router.navigate(['/find-supplier']);
     }
     if (iconName === 'home') {
       this.router.navigate(['/merchant']);
+    }
+    if (iconName === 'chat') {
+      this.router.navigate(['/chat']);
     }
   }
 

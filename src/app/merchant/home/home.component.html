@@ -1,15 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.component.scss">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.component.scss" />
+  </head>
+  <body>
     <app-header></app-header>
     <div class="content">
-        <h1>hey Home</h1>
+      <div class="choose-page">
+        <button
+          (click)="changePage()"
+          [ngClass]="{ active: activePage === 'posts' }"
+        >
+          Posts
+        </button>
+        <button
+          (click)="changePage()"
+          [ngClass]="{ active: activePage === 'products' }"
+        >
+          Products
+        </button>
+      </div>
+      <div class="posts" *ngIf="activePage === 'posts'">
+        <!-- HomeComponent HTML -->
+        <swiper-container
+          class="mySwiper"
+          space-between="30"
+          pagination="true"
+          navigation="true"
+          centered-slides="true"
+          autoplay-delay="2500"
+          autoplay-disable-on-interaction="false"
+        >
+          <swiper-slide *ngFor="let slide of slides">
+            <img [src]="slide" alt="Fashion slide" />
+          </swiper-slide>
+        </swiper-container>
+        <div class="slide-content">
+          <div class="text-overlay">
+            <h2>New</h2>
+            <div class="collection-line">
+              <hr class="line left-line" />
+              <span>Collection</span>
+              <hr class="line right-line" />
+            </div>
+            <p>Visit Profile and Check out whats New</p>
+          </div>
+        </div>
+        <div class="posts-container">
+            <div class="post" *ngFor="let post of posts">
+              <div class="post-header">
+                <img class="supplier-avatar" [src]="post.supplierAvatar" alt="Supplier's Avatar">
+                <div class="supplier-info">
+                  <div class="supplier-name">{{ post.supplierName }}</div>
+                  <div class="post-timestamp">{{ post.timestamp }}</div>
+                </div>
+                <img class="verified" height="20" width="20" src="../../../assets/icon/verified.svg" alt="Send" />
+              </div>
+              <div class="post-body">{{ post.content }}</div>
+            </div>
+          </div>
+                    
+      </div>
+      <div class="products" *ngIf="activePage === 'products'">
+        <div class="suppliers-container">
+            <div class="supplier-card">
+              <img src="../../../assets/cover.png" alt="supplier logo" />
+              <span class="supplier-name">Skirts</span>
+              <span class="view">View Products</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/cover.png" alt="supplier logo" />
+              <span class="supplier-name">Tops</span>
+              <span class="view">View Products</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/cover.png" alt="supplier logo" />
+              <span class="supplier-name">Pants</span>
+              <span class="view">View Products</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/cover.png" alt="supplier logo" />
+              <span class="supplier-name">shoes</span>
+              <span class="view">View Products</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/cover.png" alt="supplier logo" />
+              <span class="supplier-name">Dresses</span>
+              <span class="view">View Products</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/profile.jpg" alt="supplier logo" />
+              <span class="supplier-name">DoDo Finger</span>
+              <span class="view">View Profile</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/profile.jpg" alt="supplier logo" />
+              <span class="supplier-name">DoDo Finger</span>
+              <span class="view">View Profile</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/profile.jpg" alt="supplier logo" />
+              <span class="supplier-name">DoDo Finger</span>
+              <span class="view">View Profile</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/profile.jpg" alt="supplier logo" />
+              <span class="supplier-name">DoDo Finger</span>
+              <span class="view">View Profile</span>
+            </div>
+            <div class="supplier-card">
+              <img src="../../../assets/profile.jpg" alt="supplier logo" />
+              <span class="supplier-name">DoDo Finger</span>
+              <span class="view">View Profile</span>
+            </div>
+          </div>
+      </div>
     </div>
     <app-footer></app-footer>
-</body>
+  </body>
 </html>

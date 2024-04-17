@@ -1,3 +1,26 @@
-<p>
-  chat works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="chat.component.scss" />
+  </head>
+  <body>
+    <app-header></app-header>
+    <div class="content">
+      <div class="chats-container" *ngFor="let chatCard of chatCards">
+        <div class="chat-card" (click)="openConversation()">
+          <div class="initial">
+            <img src="../../../assets/profile.jpg" alt="image" />
+            <div class="info">
+              <span class="name">Rayn Issa</span>
+              <span class="message">hello i am here asc</span>
+            </div>
+          </div>
+          <span class="time">19:40</span>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </body>
+</html>
