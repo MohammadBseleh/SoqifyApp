@@ -10,13 +10,13 @@
     <div class="content">
       <div class="choose-page">
         <button
-          (click)="changePage()"
+          (click)="changePage('posts')"
           [ngClass]="{ active: activePage === 'posts' }"
         >
           Posts
         </button>
         <button
-          (click)="changePage()"
+          (click)="changePage('products')"
           [ngClass]="{ active: activePage === 'products' }"
         >
           Products
@@ -65,7 +65,7 @@
       </div>
       <div class="products" *ngIf="activePage === 'products'">
         <div class="suppliers-container">
-            <div class="supplier-card">
+            <div class="supplier-card" (click)="navigateToProducts()">
               <img src="../../../assets/cover.png" alt="supplier logo" />
               <span class="supplier-name">Skirts</span>
               <span class="view">View Products</span>

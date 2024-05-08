@@ -64,6 +64,11 @@
     justify-content: center;
 
 }
+.profile-initial button{
+  display: flex;
+  justify-content: center;
+}
+
 
 .profile-info {
     margin: 15px;
@@ -119,3 +124,65 @@
 
 
 
+/* ... existing CSS above */
+
+.rating-section,
+.reviews {
+  padding: 15px;
+}
+
+.rating-section h3,
+.reviews h3 {
+  margin-bottom: 10px;
+}
+
+.rating-stars,
+.review-stars {
+  display: flex;
+  justify-content: flex-start;
+}
+
+ion-icon {
+  color: #ffd700; /* gold color for stars */
+}
+
+.rating-comment {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.submit-rating {
+  padding: 10px 20px;
+  background-color: #C73240;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-rating:hover {
+  background-color: #a52b32;
+}
+
+.review {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.review-text {
+  color: #333;
+  font-size: 14px;
+}
+igc-rating {
+  --symbol-size: 84px;  /* Desired size */
+  --symbol-gap: 10px;  /* Desired gap */
+  color: #C73240;
+}

@@ -9,6 +9,7 @@
   background-color: white;
   position: fixed;
   z-index: 1000;
+  margin-top: 6px;
 }
 button {
   background-color: white;
@@ -27,7 +28,7 @@ button.active {
 .mySwiper {
   width: 80%; // Adjust width as necessary
   height: 350px; // Set a fixed height for the swiper
-  margin-top: 17%;
+  margin-top: 18%;
   padding-top: 10px;
   position: relative;
 
@@ -147,7 +148,7 @@ p {
   gap: 10px;
   margin: 20px;
   border-radius: 15px;
-  margin-top: 20%;
+  margin-top: 22%;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.25);
 }
 .supplier-card{

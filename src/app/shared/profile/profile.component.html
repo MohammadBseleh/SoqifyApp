@@ -21,7 +21,8 @@
         </div>
         <div class="profile-initial">
           <h2>Khaled abu finger</h2>
-          <button class="add-button">add</button>
+          <button class="add-button">
+             Edit</button>
         </div>
         <div class="profile-info">
           <div class="info">
@@ -66,6 +67,34 @@
           <p>
             Experience the allure of Turkish fashion 🇹🇷 at Bonita, a prominent clothing brand based in thjladncljjlascnkdasj.cn;oj daj;knv;as ljdnalscn lajncslasndcl alsncilasmdc aldscnpikamdl dsoclnaipldsmc;e heart of Turkey. We curate fashion that exudes elegance and embraces contemporary trends, capturing the essence of sophistication and style. Explore our collection of meticulously crafted garments, each piece reflecting the beauty and grace that Turkish fashion embodies 🇹🇷🇹🇷.
           </p>
+        </div>
+        <div class="rating-section">
+          <h3>Rate this Supplier</h3>
+          <div class="rating-stars">
+            <igc-rating value="ratingVal" half="true" min="1" max="5" (igcChange)="ratingChanged($event);"></igc-rating>
+          </div>
+          <textarea placeholder="Leave a comment..." class="rating-comment"></textarea>
+          <button (click)="submitRating('comment')" class="submit-rating">Submit Rating</button>
+        </div>
+        
+        <div class="reviews">
+          <h3>Latest Reviews</h3>
+          <div class="review">
+            <igc-rating value="3.5" half="true" [disabled]="true"></igc-rating>
+
+            <p class="review-text">Great quality products and excellent service!</p>
+          </div>
+          <div class="review">
+            <igc-rating value="2.5" half="true" [disabled]="true"></igc-rating>
+
+            <p class="review-text">Great quality products and excellent service!</p>
+          </div>
+          <div class="review">
+            <igc-rating value="5" half="true" [disabled]="true"></igc-rating>
+
+            <p class="review-text">Great quality products and excellent service!</p>
+          </div>
+          <!-- ... repeat for other two reviews -->
         </div>
       </div>
     </div>

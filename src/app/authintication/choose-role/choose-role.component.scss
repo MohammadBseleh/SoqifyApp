@@ -97,10 +97,10 @@
     margin-bottom: 40px;
   }
   .type-container {
+    padding: 30px;
     display: flex; /* This will enable flexbox layout */
     flex-direction: column; /* This stacks the img and span vertically */
     align-items: center; /* This centers them horizontally in the flex container */
-    margin-right: 20px; /* This adds a gap between each type-container */
   }
   
   .type-container:last-child {
@@ -111,11 +111,17 @@
   .container-wrapper {
     margin-top: 20px;
     display: flex; /* Enables flexbox layout for the container wrapper */
-    gap: 60px; /* This replaces the margin-right on .type-container for spacing */
+    gap: 20px; /* This replaces the margin-right on .type-container for spacing */
   }
   
   img {
     margin-bottom: 10px; /* Adjust as needed for spacing between img and span */
   }
-  
+  .active {
+    background-color: rgba(199, 50, 64, 0.3); /* Adjust the active background color with opacity */
+    color: white; /* Adjust the active text color */
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid #C73240; /* Adjust the active border color */
+  }
   

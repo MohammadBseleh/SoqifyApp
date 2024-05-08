@@ -42,5 +42,9 @@ export const routes: Routes = [
   {
     path: 'find-supplier',
     loadComponent: () => import('./merchant/find-supplier/find-supplier.page').then( m => m.FindSupplierPage)
+  },
+  {
+    path: 'products',
+    loadComponent: () => import('./merchant/products/products.component').then( m => m.ProductsComponent)
   }
 ];

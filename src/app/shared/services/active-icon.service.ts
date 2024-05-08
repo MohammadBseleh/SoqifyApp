@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ActiveIconService {
   private _activeIcon: string = '';
-  constructor() { }
-
+  private _activeHomePage: string = 'posts';
+  constructor() {}
 
   getActiveIcon(): string {
     return this._activeIcon;
@@ -14,5 +14,11 @@ export class ActiveIconService {
 
   setActiveIcon(iconName: string) {
     this._activeIcon = iconName;
+  }
+  getActiveHomePage(): string {
+    return this._activeHomePage;
+  }
+  setActiveHomePage(homePage: string) {
+    this._activeHomePage = homePage;
   }
 }

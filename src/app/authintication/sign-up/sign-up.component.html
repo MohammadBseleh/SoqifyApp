@@ -19,23 +19,23 @@
       </header>
 
       <div class="login-card">
-        <form class="login-form">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="login-form">
           <span class="email-text">Store Name</span>
-          <input placeholder="Store Name" required />
+          <input formControlName="storeName" placeholder="Store Name" required />
+        
           <span class="email-text">Username</span>
-          <input placeholder="Username" required />
+          <input formControlName="name" placeholder="Username" required />
+        
           <span class="email-text">Email</span>
-          <input type="email" id="email" placeholder="Email" required />
+          <input type="email" formControlName="email" placeholder="Email" required />
+        
           <span class="email-text">Password</span>
-          <input type="password" id="password" placeholder="Password" required />
+          <input type="password" formControlName="password" placeholder="Password" required />
+        
           <span class="email-text">Confirm Password</span>
-          <input
-            type="password"
-            id="password"
-            placeholder="Confirm Password"
-            required
-          />
-          <button type="submit">Continue</button>
+          <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" required />
+        
+          <button type="submit" (click)="onSubmit()">Continue</button>
         </form>
         <div class="separator">Or Continue With</div>
 

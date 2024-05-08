@@ -25,11 +25,11 @@
         <h1>Welcome to Souqify</h1>
         <h2>Continue As:</h2>
         <div class="container-wrapper">
-          <div class="type-container">
+          <div class="type-container" [ngClass]="{'active' : isMerchant}" (click)="changeRole('merchant')">
             <img src="../../../assets/icon/merchantSymbol.png" alt="merchant">
             <span class="type">Merchant</span>
           </div>
-          <div class="type-container">
+          <div class="type-container" [ngClass]="{'active' : !isMerchant}" (click)="changeRole('supplier')">
             <img src="../../../assets/icon/supplierSymbol.png" alt="supplier">
             <span class="type">Supplier</span>
           </div>

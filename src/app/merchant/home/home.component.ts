@@ -3,6 +3,8 @@ import { HeaderComponent } from "../../shared/header/header.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ActiveIconService } from 'src/app/shared/services/active-icon.service';
 
 @Component({
     selector: 'app-home',
@@ -13,7 +15,7 @@ import { IonicModule } from '@ionic/angular';
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeComponent  implements OnInit {
-activePage: string = 'posts';
+activePage: string = this.activeService.getActiveHomePage();
 
   public slideOptions = {
     initialSlide: 0,
@@ -22,7 +24,7 @@ activePage: string = 'posts';
     loop: true
   };
 
-  constructor() { }
+  constructor(private router: Router, private activeService: ActiveIconService) { }
 
   slides = [
     '../../../assets/random/1.webp',
@@ -65,7 +67,11 @@ activePage: string = 'posts';
   ngOnInit() {
   }
 
-  changePage(): void {
-    this.activePage = this.activePage === 'posts' ? 'products' : 'posts';
+  changePage(page : string): void {
+    this.activePage = page;
+    this.activeService.setActiveHomePage(page);
+  }
+  navigateToProducts() {
+    this.router.navigate(['/products']);
   }
 }

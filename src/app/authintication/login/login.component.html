@@ -9,7 +9,12 @@
   <body>
     <div class="container">
       <header class="header">
-        <img width="50" height="50" src="https://img.icons8.com/C73240/pastel-glyph/64/person-male--v2.png" alt="person-male--v2" />
+        <img
+          width="50"
+          height="50"
+          src="https://img.icons8.com/C73240/pastel-glyph/64/person-male--v2.png"
+          alt="person-male--v2"
+        />
         <h1>Login</h1>
       </header>
 
@@ -58,34 +63,48 @@
           </svg>
         </div>
 
-        <form class="login-form">
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
           <span class="email-text">Username or Email</span>
-          <input placeholder="Email" required />
-          <span class="email-text">password</span>
+          <input formControlName="username" placeholder="Username" required />
+
+          <span class="email-text">Password</span>
           <input
             type="password"
-            id="password"
+            formControlName="password"
             placeholder="Password"
             required
           />
+
           <a href="#" class="forgot-password">Forgot Password?</a>
           <button type="submit" (click)="navigateToMerchant()">Continue</button>
         </form>
 
-        <div class="separator">Or Continue With</div>
+        <div class="separator " >Or Continue With</div>
 
         <div class="flex-row">
           <button class="btn">
-            <img width="20" height="20" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/color/48/google-logo.png"
+              alt="google-logo"
+            />
             Sign in with Google
           </button>
           <button class="btn apple">
-            <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/mac-os.png" alt="Apple logo" />
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/ios-filled/50/mac-os.png"
+              alt="Apple logo"
+            />
             Sign in with Apple
           </button>
         </div>
 
-        <div class="register-link">New here? <a (click)="navigateToRegister()">Register now!</a></div>
+        <div class="register-link">
+          New here? <a (click)="navigateToRegister()">Register now!</a>
+        </div>
       </div>
     </div>
   </body>
