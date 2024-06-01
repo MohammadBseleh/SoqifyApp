@@ -5,6 +5,10 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActiveIconService } from 'src/app/shared/services/active-icon.service';
+import { HomeService } from '../services/home.service';
+import { Category, Post } from '../models/home';
+import { query } from '@angular/animations';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
@@ -23,8 +27,9 @@ activePage: string = this.activeService.getActiveHomePage();
     autoplay: true,
     loop: true
   };
+  loadingPresent: any;
 
-  constructor(private router: Router, private activeService: ActiveIconService) { }
+  constructor(private router: Router, private activeService: ActiveIconService, private homeService : HomeService, private loadingCtrl: LoadingController) { }
 
   slides = [
     '../../../assets/random/1.webp',
@@ -35,43 +40,79 @@ activePage: string = this.activeService.getActiveHomePage();
     '../../../assets/random/6.jpg',
   ];
 
-  posts = [
-    {
-      supplierName: 'Sama Fashion',
-      supplierAvatar: '../../../assets/random/6.jpg',
-      timestamp: '1 day ago',
-      content: 'Get ready for the ultimate shopping event of the year! Dive into a world of vibrant decorations and festive excitement as you snag the best bargains. Mark your calendars.'
-  
-    },
-    {
-      supplierName: 'Jazz WholeSale',
-      supplierAvatar: '../../../assets/random/6.jpg',
-      timestamp: '3 days ago',
-      content: 'New Collection Just Dropped!! Don\'t miss the chance to be the first to order! First 10 orders get a 10% DISCOUNT promo code!!'
-     },
-     {
-      supplierName: 'Sama Fashion',
-      supplierAvatar: '../../../assets/random/6.jpg',
-      timestamp: '1 day ago',
-      content: 'Get ready for the ultimate shopping event of the year! Dive into a world of vibrant decorations and festive excitement as you snag the best bargains. Mark your calendars.'
-  
-    },
-    {
-      supplierName: 'Jazz WholeSale',
-      supplierAvatar: '../../../assets/random/6.jpg',
-      timestamp: '3 days ago',
-      content: 'New Collection Just Dropped!! Don\'t miss the chance to be the first to order! First 10 orders get a 10% DISCOUNT promo code!!'
-     }
-  ];
+  posts : Post[] = [];
+  categories : Category[] = [];
 
   ngOnInit() {
+    this.posts = this.getPosts();
+    this.categories = this.getCategories(); 
   }
 
+  getCategories(): Category[]{
+    this.showLoading();
+    this.homeService.getCategories().subscribe({
+      next: (response : Category[]) => {
+        this.categories = response;
+        console.log(response)
+        this.dismissLoading();
+      },
+      error: (err) => {
+        this.dismissLoading();
+        console.error('failed to fetch categories', err)}
+    })
+    return this.categories;
+  }
+
+  getPosts(): Post[] {
+    this.homeService.getPosts().subscribe({
+      next: (response : Post[]) => {
+        console.log('Posts fetched successfully', response);
+        this.posts = response;
+        this.dismissLoading();
+      },
+      error: (err) => {
+        console.error('Failed to fetch posts', err);
+        this.dismissLoading();
+      }
+    });
+    return this.posts;
+  }
+
+  async showLoading() {
+    if (!this.loadingPresent) {
+      try {
+        const loading = await this.loadingCtrl.create({
+          message: 'Loading',
+        });
+        await loading.present();
+        this.loadingPresent = true;
+        console.log('Loading presented');
+      } catch (error) {
+        console.error('Error presenting loading:', error);
+      }
+    }
+  }
+
+  async dismissLoading() {
+    if (this.loadingPresent) {
+      try {
+        const loading = await this.loadingCtrl.getTop();
+        if (loading) {
+          await loading.dismiss();
+          this.loadingPresent = false;
+          console.log('Loading dismissed');
+        }
+      } catch (error) {
+        console.error('Error dismissing loading:', error);
+      }
+    }
+  }
+  
   changePage(page : string): void {
     this.activePage = page;
     this.activeService.setActiveHomePage(page);
   }
-  navigateToProducts() {
-    this.router.navigate(['/products']);
+  navigateToProducts(categoryId: number, categoryName: string) {
+    this.router.navigate(['/products'], { queryParams: { categoryId: categoryId, categoryName: categoryName } });
   }
 }

@@ -62,7 +62,7 @@
   border-radius: 9px;
 }
 .supplier-name{
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bolder;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-top: 10px;
@@ -78,4 +78,118 @@
     overflow-y: auto;
     position: relative;
     top: 30%;
+}
+
+.child-details .product-card {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    text-align: center;
+    overflow-y: auto;
+}
+.child-details img{
+    padding-top: 20px;
+    padding-left: 10px;
+    max-width: 60%;
+}
+
+.child-details .product-image {
+    width: 100%;
+    display: block;
+}
+
+.child-details .product-title {
+    color: #333;
+    font-size: 1.5em;
+}
+
+.child-details .product-brand {
+    color: #555;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.child-details .product-details, .availability, .price {
+    padding: 0 20px;
+    text-align: left;
+    color: #C73240;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.child-details .quantity-selector, .color-selector, .size-selector {
+    margin-bottom: 10px;
+    padding: 0 20px;
+    text-align: left;
+    color: #C73240;
+}
+
+.child-details .quantity-selector input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+}
+
+.child-details .size-selector button, .color-selector button {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+}
+
+.child-details .add-to-cart-btn {
+    background-color: #C73240 !important;
+    color: white !important;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #a52b32;
+}
+.pic-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.modal-number{
+    padding: 0 20px;
+    text-align: left;
+    color: #C73240;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+.child-details span{
+    color: #000000;
+}
+.pcs{
+    padding: 0 20px;
+    text-align: left;
+    color: #C73240;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.error {
+  border: 1px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+}
+
+.selected {
+  border: 2px solid blue;
 }

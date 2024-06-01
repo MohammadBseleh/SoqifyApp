@@ -155,6 +155,7 @@ ion-icon {
   border-radius: 5px;
   font-size: 14px;
   resize: vertical;
+  background-color: white;
 }
 
 .submit-rating {
@@ -186,3 +187,36 @@ igc-rating {
   --symbol-gap: 10px;  /* Desired gap */
   color: #C73240;
 }
+
+.thank-you-message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px; /* Add padding for better spacing */
+  background-color: #e7f5e7; /* Light green background */
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #c3e6c3; /* Border to match the background */
+
+  h3 {
+    color: #4CAF50; /* Green color for the heading */
+    font-size: 24px; /* Font size for the heading */
+    margin-bottom: 10px; /* Spacing below the heading */
+    font-family: 'Arial', sans-serif; /* Font family for the heading */
+  }
+
+  p {
+    color: #333; /* Dark color for the paragraph text */
+    font-size: 16px; /* Font size for the paragraph text */
+    margin: 0; /* Remove default margin */
+    font-family: 'Arial', sans-serif; /* Font family for the paragraph text */
+  }
+}
+
+/* Ensure .thank-you-message is well separated from the previous and next sections */
+.rating-section + .thank-you-message {
+  margin-top: 30px; /* Extra space before the thank you message */
+}
+
+.reviews + .thank-you-message {
+  margin-bottom: 30px; /* Extra space after the thank you message */
+}
+

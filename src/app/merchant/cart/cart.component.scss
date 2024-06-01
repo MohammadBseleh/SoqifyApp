@@ -1,0 +1,149 @@
+
+
+.shopping-cart {
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #C7313F;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.products-count {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.cart-items {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 120px;
+    height: 140px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-details h2 {
+    color: #a52b32;
+    font-size: 15px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+.item-details p {
+    margin: 5px 0;
+    color: #a52b32;
+}
+
+.color, .quantity, .pieces {
+    font-weight: bold;
+    color: #a52b32;
+}
+
+.item-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    gap: 10px;
+  }
+  
+  .item-price button {
+    border: none;
+    width: 48%;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .edit-item{
+    background-color: #007bff;
+    color: white;
+  }
+  
+
+  .item-price .edit-item:hover {
+    background-color: #006fe5;
+  }
+  .item-price .remove-item {
+    color: #C7313F;
+  }
+  
+  .item-price .remove-item:hover {
+    background-color: #ffbdbd;
+  }
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.cart-summary p {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    
+}
+
+.cart-summary .total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.payment-note {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.checkout-button {
+    display: block;
+    width: 100%;
+    background-color: #C7313F;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-align: center;
+    position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.checkout-button:hover {
+    background-color: #a52b32;
+}
+.size {
+    white-space: nowrap;
+}
+.sub-price{
+    color: #a52b32;
+    font-size: 10px;
+}

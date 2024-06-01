@@ -1,81 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="find-supplier.page.scss" />
-  </head>
-  <body>
-    <app-header></app-header>
-    <div class="content">
-      <div class="search-container">
-        <input type="text" placeholder="Search suppliers..." class="search-input" />
-        <button class="search-button">Search</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="find-supplier.page.scss" />
+</head>
+<body>
+  <app-header></app-header>
+  <div class="content" *ngIf="!loadingPresent">
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search suppliers..." class="search-input" />
+      <button class="search-button" (click)="searchSuppliers()">Search</button>
     </div>
     
-      <div class="suppliers-container">
-        <div class="supplier-card">
-          <img src="../../../assets/cover.png" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/cover.png" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/cover.png" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/cover.png" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/cover.png" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/profile.jpg" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/profile.jpg" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/profile.jpg" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/profile.jpg" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
-        <div class="supplier-card">
-          <img src="../../../assets/profile.jpg" alt="supplier logo" />
-          <span class="supplier-name">DoDo Finger</span>
-          <span class="location">Jerusalem, Palestine</span>
-          <span class="view">View Profile</span>
-        </div>
+    <div class="suppliers-container" *ngIf="filteredSuppliers.length > 0; else noSuppliers">
+      <div class="supplier-card" *ngFor="let supplier of filteredSuppliers">
+        <img [src]="supplier.profileImage || '../../../assets/profile.jpg'" alt="supplier logo" />
+        <span class="supplier-name">{{ supplier.username }}</span>
+        <span class="location">{{ supplier.location }}</span>
+        <span class="view" (click)="viewSupplier(supplier.userId)">View Profile</span>
       </div>
     </div>
-    <app-footer></app-footer>
-  </body>
+    <ng-template class="suppliers-container" #noSuppliers>
+      <div class="no-suppliers">
+        <p>No suppliers found.</p>
+      </div>
+    </ng-template>
+  </div>
+  <app-footer></app-footer>
+</body>
 </html>

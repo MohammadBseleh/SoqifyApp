@@ -28,13 +28,38 @@ export class LoginComponent  implements OnInit {
   login() {
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe({
-        next: (response) => this.navigateToMerchant(),
+        next: (response) => {
+          console.log('Login successful', response);
+          localStorage.setItem('jwtToken', response.token);
+          localStorage.setItem('roleId', response.roleId.toString());
+          localStorage.setItem('userId', response.userId.toString());
+          localStorage.setItem('username', response.username);
+          localStorage.setItem('email', response.email);
+          this.navigateBasedOnRole(response.roleId);
+        },
         error: (err) => console.error('Login failed', err)
       });
     }
   }
 
-  navigateToMerchant() {
-    this.router.navigate(['merchant']);
+  navigateBasedOnRole(roleId: number) {
+    switch (roleId) {
+      case 1:
+        // Navigate to admin dashboard
+        this.router.navigate(['admin']);
+        break;
+      case 2:
+        // Navigate to user dashboard
+        this.router.navigate(['supplier']);
+        break;
+      case 3:
+        // Navigate to merchant dashboard
+        this.router.navigate(['merchant']);
+        break;
+      default:
+        // Navigate to default route or show an error
+        this.router.navigate(['login']);
+        break;
+    }
   }
 }

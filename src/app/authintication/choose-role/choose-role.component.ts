@@ -29,5 +29,6 @@ export class ChooseRoleComponent  implements OnInit {
       this.role = Role.SUPPLIER;
       this.isMerchant = false;
     }
+    console.log(this.role);
   }
 }

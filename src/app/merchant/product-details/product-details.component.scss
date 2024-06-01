@@ -76,6 +76,10 @@ img{
     padding: 15px;
     font-size: 1.1em;
     cursor: pointer;
+    width: 96%;
+    border-radius: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .add-to-cart-btn:hover {
@@ -104,3 +108,39 @@ span{
     font-size: 0.9em;
     margin-bottom: 10px;
 }
+
+.error {
+    border: 1px solid red !important;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
+
+  .selected {
+    border: 2px solid blue;
+  }
+
+  .quantity-selector,
+  .color-selector,
+  .size-selector {
+    margin-bottom: 1em;
+  }
+
+  .color-selector button,
+  .size-selector button {
+    margin: 0.2em;
+    padding: 0.5em 1em;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  .color-selector button.selected,
+  .size-selector button.selected {
+    background-color: #a52b32;
+    color: white;
+  }
+
+  

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Souqify Dashboard</title>
+    <link rel="stylesheet" href="dashboard.component.scss" />
+  </head>
+  <body>
+    <app-header></app-header>
+    <div class="content">
+      <div class="financial-statement">
+        <div class="statement-header">
+          <h2>Financial Statement</h2>
+          <div class="period-selector">
+            <span>Last Month</span>
+          </div>
+        </div>
+        <div class="statement-cards">
+          <div class="card">
+            <div class="card-content">
+              <div>
+                <p>Revenue</p>
+                <h3>$25K</h3>
+              </div>
+              <div>
+                <img
+                  class="logo"
+                  src="../../../assets/icon/dashboard1.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div>
+                <p>Sales</p>
+                <h3>$13.5K</h3>
+              </div>
+              <div>
+                <img
+                  class="logo"
+                  src="../../../assets/icon/dashboard2.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="full-report-link" (click)="navigateToFinancialReport()">See full report</a>
+      </div>
+      <h1>Recent Orders</h1>
+      <div class="order-container">
+        <div class="order-card">
+          <div class="order-details">
+            <span class="date">28/10/2024</span>
+            <span>price Quote 28/10/202</span>
+            <a>View Details</a>
+          </div>
+          <div class="status">Supplier Answered</div>
+        </div>
+        <div class="order-card">
+          <div class="order-details">
+            <span class="date">28/10/2024</span>
+            <span>price Quote 28/10/202</span>
+            <a>View Details</a>
+          </div>
+          <div class="status">Supplier Answered</div>
+        </div>
+        <div class="order-card">
+          <div class="order-details">
+            <span class="date">28/10/2024</span>
+            <span>price Quote 28/10/202</span>
+            <a>View Details</a>
+          </div>
+          <div class="status">Supplier Answered</div>
+        </div>
+        <div class="see-all">
+          <h4>See All <span>‣</span></h4>
+        </div>
+      </div>
+      <h1>Potential Merchants</h1>
+      <div class="potential-merchants">
+        <div class="merchants-list">
+          <div class="merchant">
+            <img src="../../../assets/profile.jpg" alt="Merchant 1" />
+            <p>Merchant 1</p>
+          </div>
+          <div class="merchant">
+            <img src="../../../assets/profile.jpg" alt="Merchant 2" />
+            <p>Merchant 2</p>
+          </div>
+          <div class="merchant">
+            <img src="../../../assets/profile.jpg" alt="Merchant 3" />
+            <p>Merchant 3</p>
+          </div>
+          <div class="merchant check-more">
+            <div class="check-more-circle">
+                <p>...</p>
+            </div>
+            <p>Check More</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contacts</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="contacts.length > 0">
+    <div
+      class="supplier-card"
+      *ngFor="let contact of contacts"
+      (click)="selectContact(contact)"
+    >
+      <div class="supplier-card-header">
+        <div class="supplier-basic-info">
+          <div
+            class="supplier-logo"
+            [style.background-image]="'url(' + (contact?.profilePic ? contact?.profilePic.replace(' ', '%20') : 'assets/images/profile.png') + ')'"
+          ></div>
+          <div class="supplier-name">{{ contact.username }}</div>
+        </div>
+      </div>
+      
+    </div>
+  </ion-list>
+  <div class="no-chats-wrapper" *ngIf="contacts.length < 1">
+    <h1 class="no-chat-tag">No contacts found.</h1>
+    <h4 *ngIf="!isSupplier" >It seems like you have not added any supplier yet, please add 1 supplier at least to be able to contact them</h4>
+    <h4 *ngIf="isSupplier" >It seems like you have not added any merchant yet, please add 1 merchant at least to be able to contact them</h4>
+  </div>
+</ion-content>

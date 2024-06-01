@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Jockey+One|Italiana&display=swap');
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    padding: 15px;
+}
+h1{
+    padding: 15px;
+    padding-bottom: 0;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #c9302c;
+
+}
+
+.form-group {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+    padding-right: 15px;
+}
+
+.form-group.half-width {
+    flex: 1 1 48%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+}
+
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+  border-color: red;
+}
+
+.description{
+    height: 80px !important;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.images {
+    flex: 1 1 100%;
+}
+
+.images label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.images-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.images-container img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.save-continue {
+    position: sticky;
+    flex: 1 1 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: #d9534f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+  
+
+.save-continue:hover {
+    background-color: #c9302c;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }
+
+  .custom-toast {
+    color: #ffffff; /* Change text color */
+    padding-top: 20px; /* Add padding at the top */
+    margin-top: 40px;
+}

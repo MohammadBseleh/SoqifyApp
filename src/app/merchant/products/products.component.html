@@ -1,60 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="products.component.scss" />
-  </head>
-  <body>
-    <app-header></app-header>
-    <div class="content">
-
-      <div class="products">
-        <div class="category-header">
-          <div class="category-start" *ngIf="!showProductDetails" (click)="back()">
-            <ion-icon name="chevron-back"></ion-icon>
-          </div>
-          <div class="category-start" *ngIf="showProductDetails" (click)="dismissDetails()">
-            <ion-icon name="chevron-back"></ion-icon>
-          </div>
-          <div class="category-name" *ngIf="!showProductDetails">Dresses</div>
-          <div class="category-name" *ngIf="showProductDetails">Elegant Evening Gown</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="products.component.scss" />
+</head>
+<body>
+  <app-header></app-header>
+  <div class="content">
+    <div class="products">
+      <div class="category-header">
+        <div class="category-start" *ngIf="!showProductDetails" (click)="back()">
+          <ion-icon name="chevron-back"></ion-icon>
         </div>
-        <div class="suppliers-container" >
-          <div class="supplier-card" *ngIf="!showProductDetails" (click)="showDetails()" >
-            <img src="../../../assets/random/1.webp" alt="supplier logo" />
-            <span class="supplier-name">product name</span>
-            <span>supplier name</span>
-            <span class="view">View Details</span>
-          </div>
-          <div class="supplier-card" *ngIf="!showProductDetails" (click)="showDetails()" >
-            <img src="../../../assets/random/2.webp" alt="supplier logo" />
-            <span class="supplier-name">product name</span>
-            <span>supplier name</span>
-            <span class="view">View Details</span>
-          </div>
-          <div class="supplier-card" *ngIf="!showProductDetails" (click)="showDetails()" >
-            <img src="../../../assets/random/3.webp" alt="supplier logo" />
-            <span class="supplier-name">product name</span>
-            <span>supplier name</span>
-            <span class="view">View Details</span>
-          </div>
-          <div class="supplier-card" *ngIf="!showProductDetails" (click)="showDetails()" >
-            <img src="../../../assets/random/5.jpg" alt="supplier logo" />
-            <span class="supplier-name">product name</span>
-            <span>supplier name</span>
-            <span class="view">View Details</span>
-          </div>
-          <div class="supplier-card" *ngIf="!showProductDetails" (click)="showDetails()" >
-            <img src="../../../assets/random/6.jpg" alt="supplier logo" />
-            <span class="supplier-name">product name</span>
-            <span>supplier name</span>
-            <span class="view">View Details</span>
-          </div>
-          <app-product-details class="product-details" *ngIf="showProductDetails"></app-product-details>
+        <div class="category-start" *ngIf="showProductDetails" (click)="dismissDetails()">
+          <ion-icon name="chevron-back"></ion-icon>
+        </div>
+        <div class="category-name" *ngIf="!showProductDetails">{{categoryName}}</div>
+        <div class="category-name" *ngIf="showProductDetails">{{ selectedProduct?.productName }}</div>
+      </div>
+      <div class="suppliers-container" *ngIf="!showProductDetails">
+        <div class="supplier-card" *ngFor="let product of products" (click)="showDetails(product)">
+          <img [src]="'../../../assets/profile.jpg'" alt="supplier logo" />
+          <span class="supplier-name">{{ product.productName }}</span>
+          <span>supp</span>
+          <span class="view">View Details</span>
         </div>
       </div>
+      <app-product-details class="child-details" *ngIf="showProductDetails" [product]="selectedProduct"></app-product-details>
     </div>
-    <app-footer></app-footer>
-  </body>
+
+  </div>
+  <app-footer></app-footer>
+</body>
 </html>

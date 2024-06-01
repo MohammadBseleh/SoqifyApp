@@ -45,6 +45,8 @@ app-header {
   }
   
   body, html {
+    background-color: #ffffff !important;
+    color: #000000;
     margin: 0;
     padding-top: [HeaderHeight]px; /* Replace [HeaderHeight] with the actual height of your header */
     padding-bottom: [FooterHeight]px; /* Replace [FooterHeight] with the actual height of your footer */
@@ -58,7 +60,24 @@ app-header {
     padding: 110px 0 70px; /* Adjust if necessary */
   }
   :root {
+    --primary-color: #c73240;
     --swiper-navigation-color: #c73240;
     --swiper-pagination-color: #c73240;
     --swiper-pagination-bullet-size: 12px;
+    --ion-color-base: white !important;
   }
+
+  .custom-toast {
+    color: #ffffff; /* Change text color */
+    margin-top: 50px;
+}
+
+input, select, textarea {
+  background-color: white;
+
+}
+
+/* Adjust other elements as needed */
+header, nav, footer {
+  background-color: white;
+}

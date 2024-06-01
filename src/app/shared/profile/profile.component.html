@@ -1,103 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="profile.component.scss" />
-  </head>
-  <body>
-    <app-header></app-header>
-    <div class="content">
-      <div class="card">
-        <div class="cover-photo">
-          <img src="../../../assets/cover.png" alt="Cover Photo" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="profile.component.scss" />
+</head>
+<body>
+  <app-header></app-header>
+  <div class="content"  *ngIf="!loading">
+    <div class="card">
+      <div class="cover-photo">
+        <img [src]="profile.coverImage || '../../../assets/cover.png'" alt="Cover Photo" />
+      </div>
+      <div class="profile">
+        <img [src]="profile.profileImage || '../../../assets/profile.jpg'" alt="Profile Picture" class="profile-pic" />
+      </div>
+      <div class="profile-initial">
+        <h2>{{ profile.username }}</h2>
+        <button *ngIf="isOwner" class="add-button" (click)="editProfile()">Edit</button>
+        <button *ngIf="!isOwner" class="add-button" (click)="follow()">Follow</button>
+      </div>
+      <div class="profile-info">
+        <div class="info" *ngIf="profile.phoneNumber">
+          <img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/C7313F/phone--v1.png" alt="phone--v1" />
+          <span style="color: #c7313f">{{ profile.phoneNumber }}</span>
         </div>
-        <div class="profile">
-          <img
-            src="../../../assets//profile.jpg"
-            alt="Profile Picture"
-            class="profile-pic"
-          />
+        <div class="info" *ngIf="profile.email">
+          <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/C7313F/filled-message.png" alt="filled-message" />
+          <span style="color: #c7313f">{{ profile.email }}</span>
         </div>
-        <div class="profile-initial">
-          <h2>Khaled abu finger</h2>
-          <button class="add-button">
-             Edit</button>
+        <div class="info" *ngIf="profile.storeWebLink">
+          <img width="24" height="24" src="https://img.icons8.com/ios/24/C7313F/domain--v1.png" alt="domain--v1" />
+          <span style="color: #c7313f">{{ profile.storeWebLink }}</span>
         </div>
-        <div class="profile-info">
-          <div class="info">
-            <img
-              width="24"
-              height="24"
-              src="https://img.icons8.com/ios-glyphs/24/C7313F/phone--v1.png"
-              alt="phone--v1"
-            />
-            <span style="color: #c7313f">02-2330034</span>
-          </div>
-          <div class="info">
-            <img
-              width="24"
-              height="24"
-              src="https://img.icons8.com/material-sharp/24/C7313F/filled-message.png"
-              alt="filled-message"
-            />
-            <span style="color: #c7313f">beauty.fasion22$gmaail.com</span>
-          </div>
-          <div class="info">
-            <img
-              width="24"
-              height="24"
-              src="https://img.icons8.com/ios/24/C7313F/domain--v1.png"
-              alt="domain--v1"
-            />
-            <span style="color: #c7313f">www.beauty-fasion.com</span>
-          </div>
-          <div class="info">
-            <img
-              width="24"
-              height="24"
-              src="https://img.icons8.com/ios-filled/24/C7313F/marker.png"
-              alt="marker"
-            />
-            <span style="color: #c7313f">Jerusalem, Al-Zahra'a street</span>
-          </div>
+        <div class="info" *ngIf="profile.location">
+          <img width="24" height="24" src="https://img.icons8.com/ios-filled/24/C7313F/marker.png" alt="marker" />
+          <span style="color: #c7313f">{{ profile.location }}</span>
         </div>
-        <div class="description">
-          <span>Description</span>
-          <p>
-            Experience the allure of Turkish fashion 🇹🇷 at Bonita, a prominent clothing brand based in thjladncljjlascnkdasj.cn;oj daj;knv;as ljdnalscn lajncslasndcl alsncilasmdc aldscnpikamdl dsoclnaipldsmc;e heart of Turkey. We curate fashion that exudes elegance and embraces contemporary trends, capturing the essence of sophistication and style. Explore our collection of meticulously crafted garments, each piece reflecting the beauty and grace that Turkish fashion embodies 🇹🇷🇹🇷.
-          </p>
+      </div>
+      <div class="description">
+        <span>Description</span>
+        <p>{{ profile.description }}</p>
+      </div>
+      <div class="rating-section" *ngIf="!isOwner && !ratingSubmitted">
+        <h3>Rate this Supplier</h3>
+        <div class="rating-stars">
+          <igc-rating value="ratingVal" half="true" min="1" max="5" (igcChange)="ratingChanged($event);"></igc-rating>
         </div>
-        <div class="rating-section">
-          <h3>Rate this Supplier</h3>
-          <div class="rating-stars">
-            <igc-rating value="ratingVal" half="true" min="1" max="5" (igcChange)="ratingChanged($event);"></igc-rating>
-          </div>
-          <textarea placeholder="Leave a comment..." class="rating-comment"></textarea>
-          <button (click)="submitRating('comment')" class="submit-rating">Submit Rating</button>
-        </div>
-        
-        <div class="reviews">
-          <h3>Latest Reviews</h3>
-          <div class="review">
-            <igc-rating value="3.5" half="true" [disabled]="true"></igc-rating>
-
-            <p class="review-text">Great quality products and excellent service!</p>
-          </div>
-          <div class="review">
-            <igc-rating value="2.5" half="true" [disabled]="true"></igc-rating>
-
-            <p class="review-text">Great quality products and excellent service!</p>
-          </div>
-          <div class="review">
-            <igc-rating value="5" half="true" [disabled]="true"></igc-rating>
-
-            <p class="review-text">Great quality products and excellent service!</p>
-          </div>
-          <!-- ... repeat for other two reviews -->
+        <textarea [(ngModel)]="comment" placeholder="Leave a comment..." class="rating-comment"></textarea>
+        <button (click)="submitRating()" class="submit-rating">Submit Rating</button>
+      </div>
+      <div class="thank-you-message" *ngIf="ratingSubmitted">
+        <h3>Thank You!</h3>
+        <p>Thank you for submitting your rating and comment.</p>
+      </div>
+      <div class="reviews">
+        <h3>Latest Reviews</h3>
+        <div class="review" *ngFor="let rating of profile.ratings">
+          <igc-rating [value]="rating.rating" half="true" [disabled]="true"></igc-rating>
+          <p class="review-text">{{ rating.comment }}</p>
         </div>
       </div>
     </div>
-    <app-footer></app-footer>
-  </body>
+  </div>
+  <app-footer></app-footer>
+</body>
 </html>

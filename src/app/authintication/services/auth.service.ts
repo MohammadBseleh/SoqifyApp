@@ -5,6 +5,10 @@ import { tap } from 'rxjs/operators';
 import { SignupRequest, loginRequest } from '../models/auth';
 import { environment } from 'src/environments/environment';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +39,11 @@ export class AuthService {
       })
     );
   }
+
+  // refreshToken(): Observable<any> {
+  //   const refreshToken = localStorage.getItem('refreshToken');
+  //   return this.http.post<any>('http://yourapi.com/auth/refresh', { refreshToken });
+  // }
 
   logout(): void {
     // Remove the token from localStorage upon logout

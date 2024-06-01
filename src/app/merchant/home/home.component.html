@@ -7,7 +7,7 @@
   </head>
   <body>
     <app-header></app-header>
-    <div class="content">
+    <div class="content" *ngIf="!loadingPresent">
       <div class="choose-page">
         <button
           (click)="changePage('posts')"
@@ -51,10 +51,10 @@
         <div class="posts-container">
             <div class="post" *ngFor="let post of posts">
               <div class="post-header">
-                <img class="supplier-avatar" [src]="post.supplierAvatar" alt="Supplier's Avatar">
+                <img class="supplier-avatar" src="../../../assets/Logo.png" alt="Supplier's Avatar">
                 <div class="supplier-info">
-                  <div class="supplier-name">{{ post.supplierName }}</div>
-                  <div class="post-timestamp">{{ post.timestamp }}</div>
+                  <div class="supplier-name">{{ post.username }}</div>
+                  <div class="post-timestamp">{{ post.postedAt }}</div>
                 </div>
                 <img class="verified" height="20" width="20" src="../../../assets/icon/verified.svg" alt="Send" />
               </div>
@@ -65,55 +65,10 @@
       </div>
       <div class="products" *ngIf="activePage === 'products'">
         <div class="suppliers-container">
-            <div class="supplier-card" (click)="navigateToProducts()">
-              <img src="../../../assets/cover.png" alt="supplier logo" />
-              <span class="supplier-name">Skirts</span>
+            <div class="supplier-card" *ngFor="let category of categories" (click)="navigateToProducts(category.categoryId, category.name)">
+              <img [src]="category.imageUrl || '../../../assets/cover.png'" alt="supplier logo" />
+              <span class="supplier-name">{{category.name}}</span>
               <span class="view">View Products</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/cover.png" alt="supplier logo" />
-              <span class="supplier-name">Tops</span>
-              <span class="view">View Products</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/cover.png" alt="supplier logo" />
-              <span class="supplier-name">Pants</span>
-              <span class="view">View Products</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/cover.png" alt="supplier logo" />
-              <span class="supplier-name">shoes</span>
-              <span class="view">View Products</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/cover.png" alt="supplier logo" />
-              <span class="supplier-name">Dresses</span>
-              <span class="view">View Products</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/profile.jpg" alt="supplier logo" />
-              <span class="supplier-name">DoDo Finger</span>
-              <span class="view">View Profile</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/profile.jpg" alt="supplier logo" />
-              <span class="supplier-name">DoDo Finger</span>
-              <span class="view">View Profile</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/profile.jpg" alt="supplier logo" />
-              <span class="supplier-name">DoDo Finger</span>
-              <span class="view">View Profile</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/profile.jpg" alt="supplier logo" />
-              <span class="supplier-name">DoDo Finger</span>
-              <span class="view">View Profile</span>
-            </div>
-            <div class="supplier-card">
-              <img src="../../../assets/profile.jpg" alt="supplier logo" />
-              <span class="supplier-name">DoDo Finger</span>
-              <span class="view">View Profile</span>
             </div>
           </div>
       </div>

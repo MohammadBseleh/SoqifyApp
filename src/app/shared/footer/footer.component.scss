@@ -1,7 +1,7 @@
 .app-footer {
   background: #ffffff;
   padding: 10px 20px;
-  position: fixed ;
+  position: fixed;
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.wrapper{
+.wrapper {
   display: grid; /* Use CSS Grid for layout */
   grid-template-columns: repeat(5, 1fr); /* Create columns that adjust based on content size */
   gap: 10px; /* Adjust the space between grid items */
@@ -47,14 +47,4 @@
   .icon-text {
     font-size: 0.7rem;
   }
-}
-
-
-
-.icon-container.active svg {
-  fill: black;
-}
-
-.icon-container.active .icon-text {
-  color: #C73240; /* Optional: Change text color for active state */
 }

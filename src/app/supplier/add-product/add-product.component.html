@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Entry Form</title>
+    <link rel="stylesheet" href="add-product.component.scss">
+</head>
+<body>
+  <app-header></app-header>
+  <div class="content">
+      <h1>Add Product</h1>
+      <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('productName')?.invalid && addProductForm.get('productName')?.touched }">
+              <label for="productName">Modal Number</label>
+              <input type="text" id="productName" formControlName="productName">
+          </div>
+
+          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('productCategory')?.invalid && addProductForm.get('productCategory')?.touched }">
+              <label for="productCategory">Product Category</label>
+              <select id="productCategory" formControlName="productCategory">
+                  <option value="" disabled>Select Category</option>
+                  <option *ngFor="let cat of categories" [value]="cat.name">{{ cat.name }}</option>
+              </select>
+          </div>
+
+          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('brand')?.invalid && addProductForm.get('brand')?.touched }">
+              <label for="brand">Brand</label>
+              <input type="text" id="brand" formControlName="brand">
+          </div>
+
+          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('pieces')?.invalid && addProductForm.get('pieces')?.touched }">
+              <label for="pieces">Pieces</label>
+              <input type="number" id="pieces" formControlName="pieces" min="0" max="9" maxlength="1" (input)="onPiecesInput($event)" (keypress)="onKeyPress($event)">
+              <div *ngIf="addProductForm.get('pieces')?.invalid && addProductForm.get('pieces')?.touched">
+                <small class="error-message" *ngIf="addProductForm.get('pieces')?.errors?.['singleDigit']">Please enter a single digit between 0 and 9.</small>
+              </div>
+            </div>
+
+          <div class="form-group" [ngClass]="{ 'has-error': addProductForm.get('description')?.invalid && addProductForm.get('description')?.touched }">
+              <label for="description">Detailed description</label>
+              <textarea class="description" id="description" formControlName="description"></textarea>
+          </div>
+
+          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched }">
+              <label for="price">Price (USD)</label>
+              <input type="number" id="price" formControlName="price">
+          </div>
+
+          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('stock')?.invalid && addProductForm.get('stock')?.touched }">
+              <label for="stock">Number of Stock</label>
+              <input type="number" id="stock" formControlName="stock">
+          </div>
+
+          <div class="form-group" [ngClass]="{ 'has-error': addProductForm.get('sizes')?.invalid && addProductForm.get('sizes')?.touched }">
+              <label for="sizes">Sizes</label>
+              <select id="sizes" formControlName="sizes">
+                  <option value="" disabled>Select Size</option>
+                  <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+              </select>
+          </div>
+
+          <div class="form-group" [ngClass]="{ 'has-error': addProductForm.get('colors')?.invalid && addProductForm.get('colors')?.touched }">
+              <label for="colors">Colors</label>
+              <input type="text" id="colors" formControlName="colors">
+          </div>
+
+          <div class="form-group images">
+              <label>Add Images</label>
+              <div class="images-container">
+                  <img src="../../../assets/random/1.webp" alt="Product Image 1">
+                  <img src="../../../assets/random/2.webp" alt="Product Image 2">
+                  <img src="../../../assets/random/3.webp" alt="Product Image 3">
+                  <button type="button" class="add-image">+</button>
+              </div>
+          </div>
+
+          <button type="submit" class="save-continue">Save & Continue</button>
+      </form>
+  </div>
+  <app-footer></app-footer>
+</body>
+</html>

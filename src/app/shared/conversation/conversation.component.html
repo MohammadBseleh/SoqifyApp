@@ -1,3 +1,4 @@
+<!-- src/app/components/chat/chat.component.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,54 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="conversation.component.scss" />
   </head>
-  <body >
-    <div class="content">
+  <body>
+    <div #contentDiv class="content">
       <div class="upper">
-      <div class="conversation-header">
-        <img
-          width="30px"
-          height="30px"
-          src="../../../assets/chevron-back-outline.svg"
-          alt="back"
-          (click)="navigateToChat()"
-        />
-        <img
-          class="profile-pic"
-          src="../../../assets/profile.jpg"
-          alt="image"
-        />
-        <span style="font-weight: bold">Rayn Issa</span>
+        <div class="conversation-header">
+          <img
+            width="30px"
+            height="30px"
+            src="../../../assets/chevron-back-outline.svg"
+            alt="back"
+            (click)="navigateToChat()"
+          />
+          <img
+            class="profile-pic"
+            src="../../../assets/profile.jpg"
+            alt="image"
+          />
+          <span style="font-weight: bold">{{toUser}}</span>
+        </div>
       </div>
-    </div>
       <div class="message">
-        <div class="sender-message">Hello, how akjasnc; as;cjonas;c o;jacns'o;re you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanksdl ks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thankdcas acsac acsvcsa acsasc dac a s s s acdacd  d d s! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
-        <div class="sender-message">Hello, how are you?</div>
-        <div class="receiver-message">I'm fine, thanks! And you?</div>
+        <div *ngFor="let msg of messages" [ngClass]="{'sender-message': msg.fromUser === fromUser, 'receiver-message': msg.fromUser !== fromUser}">
+          {{ msg.content }}
+        </div>
       </div>
       <div class="input-container">
         <input
+          [(ngModel)]="message"
           type="text"
           placeholder="Write your message"
           class="input-field"
         />
-        <button class="send-button">
+        <button class="send-button" (click)="sendMessage()">
           <img src="../../../assets/icon/send.svg" alt="Send" />
         </button>
       </div>

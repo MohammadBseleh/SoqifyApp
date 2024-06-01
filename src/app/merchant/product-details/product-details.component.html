@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="product-details.component.scss" />
-  </head>
-  <body >
-    <div class="content">
-    <div class="product-card">
-      <div class="pic-details">
-        <img
-        src="../../../assets/random/5.jpg"
-        alt="Elegant Evening Gown"
-        class="product-image"
-      />
-      </div>
-      <div class="modal-number">modal number: <span>47382</span></div>
-      <p class="availability">Availability:<span> In Stock</span></p>
-      <div class="pcs">pieces: <span>3 pcs</span></div>
-      <div class="quantity-selector">
-        <label for="quantity">Select Quantity:</label>
-        <input type="number" id="quantity" name="quantity" min="3" value="0" />
-      </div>
-      <div class="color-selector">
-        Colors:
-        <button>Grey</button>
-        <button>Yellow</button>
-        <button>Black</button>
-      </div>
-      <div class="size-selector">
-        Sizes:
-        <button>2-5 Y</button>
-        <button>5-8 Y</button>
-        <button>8-11 Y</button>
-      </div>
-      <div class="price">
-        Price:<span> 67$</span>
-      </div>
-      <button class="add-to-cart-btn">Add to cart</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="product-details.component.scss" />
+</head>
+<body>
+  <div class="product-card">
+    <div class="pic-details">
+      <img [src]="product.imageUrl ? product.imageUrl : '../../../assets/random/1.webp'" [alt]="product.name" class="product-image" />
     </div>
+    <div class="modal-number">Details: <span>{{product.description}}</span></div>
+    <div class="modal-number">Modal Number: <span>768999</span></div>
+    <div class="modal-number">Brand: <span>{{product.brand}}</span></div>
+    <p class="availability">Availability:<span> {{ product.stockQuantity }}</span></p>
+    <div class="pcs">Pieces: <span>4</span></div>
+    <div class="quantity-selector">
+      <label for="quantity">Select Quantity:</label>
+      <input 
+        type="number" 
+        id="quantity" 
+        name="quantity" 
+        min="1" 
+        [ngClass]="{'error': showError && quantity <= 0}"
+        [(ngModel)]="quantity" 
+      />
+    </div>
+    <div class="color-selector">
+      Colors:
+      <button 
+        *ngFor="let color of product.availableColors" 
+        [ngClass]="{'selected': selectedColors.includes(color), 'error': showError && selectedColors.length === 0}"
+        (click)="toggleColor(color)">
+        {{ color }}
+      </button>
+    </div>
+    <div class="size-selector">
+      Sizes:
+      <button 
+        *ngFor="let size of product.availableSizes" 
+        [ngClass]="{'selected': selectedSizes.includes(size), 'error': showError && selectedSizes.length === 0}"
+        (click)="toggleSize(size)">
+        {{ size }}
+      </button>
+    </div>
+    <div class="price">
+      Price:<span> {{ product.price }}</span>
+    </div>
+    <button class="add-to-cart-btn" (click)="validateSelection()">Add to cart</button>
   </div>
-  </body>
+</body>
 </html>

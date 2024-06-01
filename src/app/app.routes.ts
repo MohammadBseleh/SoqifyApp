@@ -46,5 +46,25 @@ export const routes: Routes = [
   {
     path: 'products',
     loadComponent: () => import('./merchant/products/products.component').then( m => m.ProductsComponent)
+  },
+  {
+    path: 'supplier',
+    loadComponent: () => import('./supplier/dashboard/dashboard.component').then( m => m.DashboardComponent)
+  },
+  {
+    path: 'add-product',
+    loadComponent: () => import('./supplier/add-product/add-product.component').then( m => m.AddProductComponent)
+  },
+  {
+    path: 'cart',
+    loadComponent: () => import('./merchant/cart/cart.component').then( m => m.CartComponent)
+  },
+  {
+    path: 'edit-profile',
+    loadComponent: () => import('./shared/edit-profile/edit-profile.component').then( m => m.EditProfileComponent)
+  },
+  {
+    path: 'financial-report',
+    loadComponent: () => import('./supplier/financial-report/financial-report.component').then( m => m.FinancialReportComponent)
   }
 ];
