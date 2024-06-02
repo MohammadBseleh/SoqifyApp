@@ -1,125 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="cart.component.scss" />
-  </head>
-  <body>
+</head>
+<body>
     <app-header></app-header>
-    <div class="content">
-      <div class="shopping-cart">
-        <h1>Shopping Cart</h1>
-        <p class="products-count">Number Of Items: <span>3</span></p>
-        <div class="cart-items">
-          <div >
-            <div class="cart-item">
-              <img
-              src="../../../assets/random/1.webp"
-              alt="Elegant Evening Gown"
-            />
-            <div class="item-details">
-              <h2>702822</h2>
-              <p>Color: <span class="color">Red, Green, Yellow</span></p>
-              <p>Sizes: <span class="color"><span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, 2 Y</span></p>
-              <p>Number of Sets: <span class="quantity">2</span></p>
-              <p>Pieces: <span class="pieces">6</span></p>
-              <p>Total: <span class="pieces">$14,99</span> <span class="sub-price"> (price per Set is 2.99)</span></p>
+    <div class="content" *ngIf="!loadingPresent">
+        <div class="shopping-cart">
+            <h1>Shopping Cart</h1>
+            <p class="products-count">Number Of Items: <span>{{ items.length }}</span></p>
+            <div class="cart-items">
+                <div *ngFor="let item of items">
+                    <div class="cart-item">
+                        <img
+                            src="../../../assets/random/1.webp"
+                            alt="Product Image"
+                        />
+                        <div class="item-details">
+                            <h2>{{ item.modelNumber }}</h2>
+                            <p>Color: <span class="color">{{ item.colors.join(', ') }}</span></p>
+                            <p>Sizes: <span class="color">{{ item.sizes.join(', ') }}</span></p>
+                            <p>Number of Sets: <span class="quantity">{{ item.quantity }}</span></p>
+                            <p>Pieces: <span class="pieces">{{ item.randomPieces }}</span></p>
+                            <p>Total: <span class="pieces">$ {{ item.total.toFixed(2) }}</span> <span class="sub-price"> (price per Set is {{ (item.total / item.quantity).toFixed(2) }})</span></p>
+                        </div>
+                    </div>
+                    <div class="item-price">
+                        <button class="remove-item" (click)="remove(item.cartItemId)">🗑️ Remove</button>
+                        <button class="edit-item">Edit</button>
+                    </div>
+                </div>
             </div>
+            <div class="cart-summary">
+                <p>Subtotal <span>$ {{ getSubtotal().toFixed(2) }}</span></p>
+                <p>Tax <span>$ {{ getTax().toFixed(2) }}</span></p>
+                <p class="total">Total <span>$ {{ getTotal().toFixed(2) }}</span></p>
             </div>
-            <div class="item-price">
-              <button class="remove-item">🗑️ Remove</button>
-              <button class="edit-item">Edit</button>
-            </div>  
-          </div>
-          <div >
-            <div class="cart-item">
-              <img
-              src="../../../assets/random/1.webp"
-              alt="Elegant Evening Gown"
-            />
-            <div class="item-details">
-              <h2>702822</h2>
-              <p>Color: <span class="color">Red, Green, Yellow</span></p>
-              <p>Sizes: <span class="color"><span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, 2 Y</span></p>
-              <p>Number of Sets: <span class="quantity">2</span></p>
-              <p>Pieces: <span class="pieces">6</span></p>
-              <p>Total: <span class="pieces">$14,99</span> <span class="sub-price"> (price per Set is 2.99)</span></p>
-            </div>
-            </div>
-            <div class="item-price">
-              <button class="remove-item">🗑️ Remove</button>
-              <button class="edit-item">Edit</button>
-            </div>  
-          </div><div >
-            <div class="cart-item">
-              <img
-              src="../../../assets/random/1.webp"
-              alt="Elegant Evening Gown"
-            />
-            <div class="item-details">
-              <h2>702822</h2>
-              <p>Color: <span class="color">Red, Green, Yellow</span></p>
-              <p>Sizes: <span class="color"><span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, 2 Y</span></p>
-              <p>Number of Sets: <span class="quantity">2</span></p>
-              <p>Pieces: <span class="pieces">6</span></p>
-              <p>Total: <span class="pieces">$14,99</span> <span class="sub-price"> (price per Set is 2.99)</span></p>
-            </div>
-            </div>
-            <div class="item-price">
-              <button class="remove-item">🗑️ Remove</button>
-              <button class="edit-item">Edit</button>
-            </div>  
-          </div><div >
-            <div class="cart-item">
-              <img
-              src="../../../assets/random/1.webp"
-              alt="Elegant Evening Gown"
-            />
-            <div class="item-details">
-              <h2>702822</h2>
-              <p>Color: <span class="color">Red, Green, Yellow</span></p>
-              <p>Sizes: <span class="color"><span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, 2 Y</span></p>
-              <p>Number of Sets: <span class="quantity">2</span></p>
-              <p>Pieces: <span class="pieces">6</span></p>
-              <p>Total: <span class="pieces">$14,99</span> <span class="sub-price"> (price per Set is 2.99)</span></p>
-            </div>
-            </div>
-            <div class="item-price">
-              <button class="remove-item">🗑️ Remove</button>
-              <button class="edit-item">Edit</button>
-            </div>  
-          </div><div >
-            <div class="cart-item">
-              <img
-              src="../../../assets/random/1.webp"
-              alt="Elegant Evening Gown"
-            />
-            <div class="item-details">
-              <h2>702822</h2>
-              <p>Color: <span class="color">Red, Green, Yellow</span></p>
-              <p>Sizes: <span class="color"><span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, <span class="size">3-5 Y</span>, 2 Y</span></p>
-              <p>Number of Sets: <span class="quantity">2</span></p>
-              <p>Pieces: <span class="pieces">6</span></p>
-              <p>Total: <span class="pieces">$14,99</span> <span class="sub-price"> (price per Set is 2.99)</span></p>
-            </div>
-            </div>
-            <div class="item-price">
-              <button class="remove-item">🗑️ Remove</button>
-              <button class="edit-item">Edit</button>
-            </div>  
-          </div>
+            <p class="payment-note">*Payment is handled by Cargo Company*</p>
+            <button class="checkout-button">Check out</button>
         </div>
-        <div class="cart-summary">
-          <p>Subtotal <span>$2104,00</span></p>
-          <p>Tax <span>$20,00</span></p>
-          <p class="total">Total <span>$2124,00</span></p>
-        </div>
-        <p class="payment-note">*Payment is handled by Cargo Company*</p>
-        <button class="checkout-button">Check out</button>
-      </div>
     </div>
     <app-footer></app-footer>
-  </body>
+</body>
 </html>

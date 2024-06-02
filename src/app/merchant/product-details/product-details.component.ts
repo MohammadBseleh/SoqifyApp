@@ -18,6 +18,7 @@ export class ProductDetailsComponent implements OnInit {
   quantity: number = 0;
   showError: boolean = false;
   loadingPresent: any;
+  randomPieces!: number;
 
   constructor(
     private cartService: CartService,
@@ -27,6 +28,11 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     console.log('Product details:', this.product);
+    this.randomPieces = this.getRandomNumber(3, 6);
+  }
+
+  getRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   toggleColor(color: string) {

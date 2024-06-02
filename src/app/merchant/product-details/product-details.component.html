@@ -11,10 +11,10 @@
       <img [src]="product.imageUrl ? product.imageUrl : '../../../assets/random/1.webp'" [alt]="product.name" class="product-image" />
     </div>
     <div class="modal-number">Details: <span>{{product.description}}</span></div>
-    <div class="modal-number">Modal Number: <span>768999</span></div>
+    <div class="modal-number">Modal Number: <span>{{product.modelNumber}}</span></div>
     <div class="modal-number">Brand: <span>{{product.brand}}</span></div>
     <p class="availability">Availability:<span> {{ product.stockQuantity }}</span></p>
-    <div class="pcs">Pieces: <span>4</span></div>
+    <div class="pcs">Pieces: <span>{{randomPieces}}</span></div>
     <div class="quantity-selector">
       <label for="quantity">Select Quantity:</label>
       <input 
@@ -45,7 +45,7 @@
       </button>
     </div>
     <div class="price">
-      Price:<span> {{ product.price }}</span>
+      Price:<span> {{ product.price }} $</span>
     </div>
     <button class="add-to-cart-btn" (click)="validateSelection()">Add to cart</button>
   </div>

@@ -24,6 +24,7 @@ export interface Product {
     availableColors: string[];
     sizesJson: string;
     colorsJson: string;
+    userName: string;
   }
 
 export interface CartItem {

@@ -23,7 +23,7 @@
         <div class="supplier-card" *ngFor="let product of products" (click)="showDetails(product)">
           <img [src]="'../../../assets/profile.jpg'" alt="supplier logo" />
           <span class="supplier-name">{{ product.productName }}</span>
-          <span>supp</span>
+          <span>{{product.userName}}</span>
           <span class="view">View Details</span>
         </div>
       </div>

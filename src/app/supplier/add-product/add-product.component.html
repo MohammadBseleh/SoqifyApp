@@ -11,9 +11,9 @@
   <div class="content">
       <h1>Add Product</h1>
       <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
-          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('productName')?.invalid && addProductForm.get('productName')?.touched }">
-              <label for="productName">Modal Number</label>
-              <input type="text" id="productName" formControlName="productName">
+          <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('modelNumber')?.invalid && addProductForm.get('modelNumber')?.touched }">
+              <label for="modelNumber">Model Number</label>
+              <input type="number" id="modelNumber" formControlName="modelNumber">
           </div>
 
           <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('productCategory')?.invalid && addProductForm.get('productCategory')?.touched }">
@@ -23,6 +23,11 @@
                   <option *ngFor="let cat of categories" [value]="cat.name">{{ cat.name }}</option>
               </select>
           </div>
+
+          <div class="form-group" [ngClass]="{ 'has-error': addProductForm.get('modelNumber')?.invalid && addProductForm.get('modelNumber')?.touched }">
+            <label for="productName">Product Name</label>
+              <input type="text" id="productName" formControlName="productName">
+            </div>
 
           <div class="form-group half-width" [ngClass]="{ 'has-error': addProductForm.get('brand')?.invalid && addProductForm.get('brand')?.touched }">
               <label for="brand">Brand</label>

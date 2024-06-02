@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, model } from '@angular/core';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { Category } from 'src/app/merchant/models/home';
@@ -45,6 +45,7 @@ export class AddProductComponent implements OnInit {
     this.categories = this.getCategories();
     this.addProductForm = this.fb.group({
       productName: ['', Validators.required], // renamed from label to productName
+      modelNumber: ['', Validators.required], // removed
       productCategory: ['', Validators.required], // unchanged
       brand: ['', Validators.required], // unchanged
       pieces: ['', [Validators.required, this.singleDigitValidator]], // unchanged
@@ -139,6 +140,7 @@ export class AddProductComponent implements OnInit {
       const requestBody = {
         productName: formData.productName,
         description: formData.description,
+        modelNumber: formData.modelNumber,
         price: formData.price,
         brand: formData.brand,
         categoryId: this.categories.find(cat => cat.name === formData.productCategory)?.categoryId || null,
