@@ -112,4 +112,24 @@ async presentToast(message: string, color: 'success' | 'danger') {
   toast.present();
 }
 
+checkOut(){
+  this.showLoading();
+  this.cartService.ConvertToOrder().subscribe({
+    next: (response: any) => {
+      this.items.map( item => {
+        this.remove(item.cartItemId);
+      });
+      this.items = [];
+      this.presentToast('Order created successfully', 'success');
+      console.log('Order created successfully', response);
+      this.dismissLoading();
+    },
+    error: (err) => {
+      this.presentToast('Failed to create order', 'danger');
+      console.error('Error creating order:', err);
+      this.dismissLoading();
+    }
+  });
+}
+
 }

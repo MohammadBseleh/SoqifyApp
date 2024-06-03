@@ -16,8 +16,10 @@
         <div class="category-start" *ngIf="showProductDetails" (click)="dismissDetails()">
           <ion-icon name="chevron-back"></ion-icon>
         </div>
-        <div class="category-name" *ngIf="!showProductDetails">{{categoryName}}</div>
-        <div class="category-name" *ngIf="showProductDetails">{{ selectedProduct?.productName }}</div>
+        <div class="category-name-container">
+          <div class="category-name" *ngIf="!showProductDetails">{{categoryName}}</div>
+          <div class="category-name product-name" *ngIf="showProductDetails">{{ selectedProduct?.productName }}</div>
+        </div>
       </div>
       <div class="suppliers-container" *ngIf="!showProductDetails">
         <div class="supplier-card" *ngFor="let product of products" (click)="showDetails(product)">
@@ -29,7 +31,6 @@
       </div>
       <app-product-details class="child-details" *ngIf="showProductDetails" [product]="selectedProduct"></app-product-details>
     </div>
-
   </div>
   <app-footer></app-footer>
 </body>

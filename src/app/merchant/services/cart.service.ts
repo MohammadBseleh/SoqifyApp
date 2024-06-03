@@ -20,4 +20,7 @@ export class CartService {
   deleteCartItem(id : number){
     return this._http.delete(`${environment.apiUrl}/cart/cartItems/${id}`);
   }
+  ConvertToOrder(): Observable<void>{
+    return this._http.delete<void>(`${environment.apiUrl}/orders/create`);
+  }
 }

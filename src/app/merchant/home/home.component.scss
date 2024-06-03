@@ -177,3 +177,47 @@ p {
   font-size: 13px;
 }
 
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.supplier-avatar {
+  width: 50px; /* Avatar size */
+  height: 50px;
+  border-radius: 50%; /* Circular avatar */
+  margin-right: 10px;
+}
+
+.supplier-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.name-verified {
+  display: flex;
+  align-items: self-end;
+}
+
+.supplier-name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+  margin-right: 5px; /* Space between name and verified icon */
+  text-align: center;
+}
+
+.verified {
+  position: relative;
+  bottom: -1px;
+  right: 6px;
+}
+
+.post-timestamp {
+  color: #666;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}

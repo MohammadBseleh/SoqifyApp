@@ -56,6 +56,7 @@ app-header {
   .content {
     /* Assuming .content wraps all the page content except header and footer */
     overflow-y: auto;
+    overflow-x: hidden;
     height: 100vh;
     padding: 110px 0 70px; /* Adjust if necessary */
   }

@@ -53,11 +53,14 @@
               <div class="post-header">
                 <img class="supplier-avatar" src="../../../assets/Logo.png" alt="Supplier's Avatar">
                 <div class="supplier-info">
-                  <div class="supplier-name">{{ post.username }}</div>
-                  <div class="post-timestamp">{{ post.postedAt }}</div>
+                  <div class="name-verified">
+                    <div class="supplier-name">{{ post.username }}</div>
+                    <img class="verified" height="20" width="20" src="../../../assets/icon/verified.svg" alt="Send" />
+                  </div>
+                  <div class="post-timestamp">{{ formatDateString(convertToDate(post.postedAt))  }}</div>
                 </div>
-                <img class="verified" height="20" width="20" src="../../../assets/icon/verified.svg" alt="Send" />
               </div>
+              
               <div class="post-body">{{ post.content }}</div>
             </div>
           </div>

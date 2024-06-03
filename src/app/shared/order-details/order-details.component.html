@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="cart.component.scss" />
+    <link rel="stylesheet" href="order-details.component.scss" />
 </head>
 <body>
     <app-header></app-header>
     <div class="content" *ngIf="!loadingPresent">
         <div class="shopping-cart">
-            <h1>Shopping Cart</h1>
+            <h1>Price Quote {{ date | date: 'dd/MM/yyyy'}}</h1>
             <p class="products-count">Number Of Items: <span>{{ items.length }}</span></p>
+            <div class="status">{{ status }}</div>
             <div class="cart-items">
                 <div *ngFor="let item of items">
                     <div class="cart-item">
@@ -25,12 +26,8 @@
                             <p>Sizes: <span class="color">{{ item.sizes.join(', ') }}</span></p>
                             <p>Number of Sets: <span class="quantity">{{ item.quantity }}</span></p>
                             <p>Pieces: <span class="pieces">{{ item.randomPieces }}</span></p>
-                            <p>Total: <span class="pieces">$ {{ item.total.toFixed(2) }}</span> <span class="sub-price"> (price per Set is {{ (item.total / item.quantity).toFixed(2) }})</span></p>
+                            <p>Total: <span class="pieces">$ {{ item.total.toFixed(2) }}</span> <span class="sub-price"> (price per Set is {{ item.pricePerUnit.toFixed(2) }})</span></p>
                         </div>
-                    </div>
-                    <div class="item-price">
-                        <button class="remove-item" (click)="remove(item.cartItemId)">🗑️ Remove</button>
-                        <button class="edit-item">Edit</button>
                     </div>
                 </div>
             </div>
@@ -39,8 +36,6 @@
                 <p>Tax <span>$ {{ getTax().toFixed(2) }}</span></p>
                 <p class="total">Total <span>$ {{ getTotal().toFixed(2) }}</span></p>
             </div>
-            <p class="payment-note">*Payment is handled by Cargo Company*</p>
-            <button class="checkout-button" (click)="checkOut()">Check out</button>
         </div>
     </div>
     <app-footer></app-footer>

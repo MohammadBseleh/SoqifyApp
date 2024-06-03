@@ -66,5 +66,9 @@ export const routes: Routes = [
   {
     path: 'financial-report',
     loadComponent: () => import('./supplier/financial-report/financial-report.component').then( m => m.FinancialReportComponent)
+  },
+  {
+    path: 'order-details',
+    loadComponent: () => import('./shared/order-details/order-details.component').then( m => m.OrderDetailsComponent)
   }
 ];

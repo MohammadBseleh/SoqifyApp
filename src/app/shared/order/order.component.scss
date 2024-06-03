@@ -41,6 +41,7 @@ h1 {
     margin-left: 5px;
     gap: 4px;
     text-wrap: nowrap;
+    flex-grow: 1;
 }
 .date{
     margin-bottom: 5px;
@@ -48,8 +49,8 @@ h1 {
 }
 .status{
     margin-left: 47px;
-    background-color: lightgreen;
-    padding: 5px;
+    background-color: rgb(149, 149, 149);
+    padding: 7px;
     padding-left: 12px;
     padding-right: 12px;
     text-wrap: wrap;

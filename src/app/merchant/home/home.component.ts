@@ -107,6 +107,21 @@ activePage: string = this.activeService.getActiveHomePage();
       }
     }
   }
+
+  convertToDate(dateArray: number[]): Date {
+    const [year, month, day, hour, minute, second, nanosecond] = dateArray;
+    return new Date(year, month - 1, day, hour, minute, second, nanosecond / 1000000);
+  }
+
+  formatDateString(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+    };
+
+    return date.toLocaleDateString('en-US', options);
+  }
   
   changePage(page : string): void {
     this.activePage = page;

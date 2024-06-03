@@ -21,4 +21,11 @@ export class ProfileService {
   postRating(rate : Rating){
     return this._http.post(`${this.apiUrl}/userProfile/rate`, rate );
   }
+
+  getAllOrders(): Observable<any[]>{
+    return this._http.get<any[]>(`${this.apiUrl}/orders/user`);
+  }
+  getOrderById(orderId : number): Observable<any>{
+    return this._http.get<any>(`${this.apiUrl}/orders/${orderId}`);
+  }
 }

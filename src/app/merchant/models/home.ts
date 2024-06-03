@@ -2,7 +2,7 @@ export interface Post {
     postId: number;
     username: string;
     content: string;
-    postedAt: Date;
+    postedAt: any;
 }
 
 export interface Category{
