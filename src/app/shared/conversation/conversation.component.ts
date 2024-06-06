@@ -25,6 +25,7 @@ export class ConversationComponent implements OnInit, OnDestroy {
   toUser!: string;
   private messageSubscription!: Subscription;
   private websocketSubscription!: Subscription;
+  toUserPic: any;
 
   constructor(
     private websocketService: WebSocketService,
@@ -36,6 +37,7 @@ export class ConversationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.toUser = params['toUser'];
+      this.toUserPic = params['toUserPic'];
       this.loadMessageHistory();
     });
 

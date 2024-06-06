@@ -16,7 +16,7 @@
                 <div *ngFor="let item of items">
                     <div class="cart-item">
                         <img
-                            src="../../../assets/random/1.webp"
+                            [src]="item.url ? item.url : '../../../assets/random/1.webp'"
                             alt="Product Image"
                         />
                         <div class="item-details">

@@ -8,7 +8,7 @@
 <body>
   <div class="product-card">
     <div class="pic-details">
-      <img [src]="product.imageUrl ? product.imageUrl : '../../../assets/random/1.webp'" [alt]="product.name" class="product-image" />
+      <img [src]="product.url ? product.url : '../../../assets/random/1.webp'" [alt]="product.name" class="product-image" />
     </div>
     <div class="modal-number">Details: <span>{{product.description}}</span></div>
     <div class="modal-number">Modal Number: <span>{{product.modelNumber}}</span></div>

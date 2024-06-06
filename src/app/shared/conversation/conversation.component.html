@@ -19,7 +19,7 @@
           />
           <img
             class="profile-pic"
-            src="../../../assets/profile.jpg"
+            [src]="toUserPic ? toUserPic: '../../../assets/profile.jpg'"
             alt="image"
           />
           <span style="font-weight: bold">{{toUser}}</span>

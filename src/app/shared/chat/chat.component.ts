@@ -28,7 +28,7 @@ import {
   ],
 })
 export class ChatComponent implements OnInit {
-  chatPartners: string[] = [];
+  chatPartners: any[] = [];
   username: string = localStorage.getItem('username') || 'defaultUsername'; // Replace with the actual username
   newChatPartner: string = '';
   @ViewChild('new_chat') modal!: IonModal;
@@ -125,9 +125,9 @@ export class ChatComponent implements OnInit {
     this.router.navigate(['/find-supplier']);
   }
 
-  openConversation(chatPartner: string) {
+  openConversation(chatPartner: any) {
     this.router.navigate(['/conversation'], {
-      queryParams: { toUser: chatPartner },
+      queryParams: { toUser: chatPartner.name , toUserPic: chatPartner.picUrl },
     });
   }
 
@@ -136,11 +136,11 @@ export class ChatComponent implements OnInit {
   }
   async newChat() {
     this.open_new_chat = true;
-    this.modal.present();
     await this.getContacts();
   }
+
   cancel() {
-    this.modal.dismiss();
+    this.open_new_chat = false;
   }
   startChat(contact: string) {
     this.newChatPartner = contact;
